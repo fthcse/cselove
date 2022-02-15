@@ -94,7 +94,7 @@
                             </div>
                         </h3>
                         <p>
-                            <a id="to_comments" class="btn btn-primary btn-lg" role="button">留个言吧</a>
+                            <a id="to_comments" class="btn btn-primary btn-lg" role="button">欢迎你访问</a>
                         </p>
                     </div>
                 </div>
@@ -110,7 +110,7 @@
     <div class="container-fluid" id="comments">
         <div class="row comment">
             <div class="col-xs-10 col-sm-10 col-md-6 col-xs-push-1 col-sm-push-1 col-md-push-3">
-                <h2>留言：</h2>
+                <h2>测试版</h2>
                 <div id="vcomments"></div>
             </div>
         </div>
@@ -175,72 +175,6 @@
 
         to_comments.onclick = move;
     </script>
-
-    <!-- 情话接口 -->
-    <script>
-        //进入页面时请求
-        $.ajax({
-            url: 'php/love.php',
-            type: "GET",
-            async: true,
-            data: "type=json",
-            dataType: "json",
-            success: function (loveJson) {
-                let love = loveJson["data"];
-                $(".love-son").append(love);
-            },
-            error: function (textStatus) {
-                console.log(JSON.stringify(textStatus));
-            }
-        });
-
-        //点击时请求
-        $(".love").click(function () {
-            $.ajax({
-                url: 'php/love.php',
-                type: "GET",
-                async: true,
-                data: "type=json",
-                dataType: "json",
-                success: function (loveJson) {
-                    let love = loveJson["data"];
-                    love = `<span class="love-son"">${love}</span>`;
-                    $(".love").children().replaceWith(love);
-                },
-                error: function (textStatus) {
-                    console.log(JSON.stringify(textStatus));
-                }
-            });
-        });
-
-        $("#updatalove").click(function () {
-            $.ajax({
-                url: 'php/love.php',
-                type: "GET",
-                async: true,
-                data: "type=json",
-                dataType: "json",
-                success: function (loveJson) {
-                    let love = loveJson["data"];
-                    love = `<span class="love-son"">${love}</span>`;
-                    $(".love").children().replaceWith(love);
-                },
-                error: function (textStatus) {
-                    console.log(JSON.stringify(textStatus));
-                }
-            });
-        });
-    </script>
-
-    <!-- Valine 评论系统； 由 LeanCloud 管理数据 -->
-    <script>
-        new Valine({
-            el: '#vcomments',
-            appId: 'CW70Y8gzuaHy2xsyBDftke40-gzGzoHsz',
-            appKey: 'DoSF6Hi6bXyEMUGpfr3xkDqE'
-        })
-    </script>
-
     <!-- 底部波浪 -->
     <script src="php/wave.php"></script>
 </body>
