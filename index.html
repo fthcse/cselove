@@ -110,16 +110,11 @@
     <div class="container-fluid" id="comments">
         <div class="row comment">
             <div class="col-xs-10 col-sm-10 col-md-6 col-xs-push-1 col-sm-push-1 col-md-push-3">
-                <h2>测试版</h2>
+                <h2>关于本站</h2>
                 <div id="vcomments"></div>
             </div>
         </div>
     </div>
-
-    <script src="js/jquery-1.11.0.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src='js/Valine.min.js'></script><!-- Valine 评论系统 -->
-
     <!-- 计时器 -->
     <script>
         function timer() {
@@ -175,8 +170,105 @@
 
         to_comments.onclick = move;
     </script>
-    <!-- 底部波浪 -->
-    <script src="php/wave.php"></script>
+    <link rel="stylesheet" href="/wp-content/module/pc/footer/assets/css/hyth-footer.css?ver=1.1.4" type="text/css"/>
+</div>
+</div>
+</div>
+<div class="copyright">
+<div class="links">
+<p>Copyright© 2020-2022 <a href="//蔡缮而.我爱你" target="_blank">蔡缮而.我爱你</a> All Rights Reserved 版权所有
+</p>
+<p>感谢你访问本站！欢迎你下次再来！</p>
+</div>
+     <style>
+     #footerTextIcon {
+    display: inline-block;
+    animation: beating 1s infinite;
+    animation-timing-function: ease-out;
+    margin: 0 3px;
+         }
+    #timeDate {
+    animation: turn 6s infinite;
+    animation-timing-function: ease-out;
+    }
+    #times{
+        color: white;
+        animation: turn 6s infinite;
+        animation-timing-function: ease-out;
+    }
+    #hitokoto {
+    animation: turn 6s infinite;
+    animation-timing-function: ease-out;
+    }
+    @keyframes turn {
+0%{
+    color: white;
+    
+}
+25%{
+    color: #66CCFF;
+}
+50%{
+    color: #FF3366;
+}
+75% {
+    color: red;
+}
+100% {
+    color: white;
+}
+    }
+@keyframes beating{
+0% {
+    transform: scale(1);
+}
+20% {
+    transform: scale(1.6);
+}
+30% {
+    transform: scale(1);
+}
+50% {
+    transform: scale(1.6);
+}
+70%, 100% {
+    transform: scale(1);
+}
+}
+    </style>
+      <a href="https://蔡缮而.我爱你" target="_blank" rel="no follow noopener" style="color:orange">蔡缮而.我爱你</a>
+      <span id="footerTextIcon">❤️</span>
+         <script src="https://v1.hitokoto.cn/?c=a&encode=js&select=%23hitokoto" defer></script>
+      <p id="hitokoto"></p>
+    <div>
+  <span id="timeDate">载入天数...</span>
+  <span id="times">载入时分秒...</span>
+  <script style="font:whit">
+  var now = new Date();
+  function createtime(){
+      var grt= new Date("11/25/2020 00:00:00");//此处修改你的建站时间或者网站上线时间
+      now.setTime(now.getTime()+250);
+      days = (now - grt ) / 1000 / 60 / 60 / 24;
+      dnum = Math.floor(days);
+      hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum);
+      hnum = Math.floor(hours);
+      if(String(hnum).length ==1 ){
+          hnum = "0" + hnum;
+      }
+      minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+      mnum = Math.floor(minutes);
+      if(String(mnum).length ==1 ){
+                mnum = "0" + mnum;
+      }
+      seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+      snum = Math.round(seconds);
+      if(String(snum).length ==1 ){
+                snum = "0" + snum;
+      }
+      document.getElementById("timeDate").innerHTML = "本站已运行&nbsp"+dnum+"&nbsp天";
+      document.getElementById("times").innerHTML = hnum + "&nbsp小时&nbsp" + mnum + "&nbsp分&nbsp" + snum + "&nbsp秒";
+  }
+  setInterval("createtime()",250);
+  </script>
 </body>
-
 </html>
